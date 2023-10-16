@@ -8,5 +8,5 @@ estas se ubican en la sig. ruta */src/edt/*
 cada una de las estructuras corresponderá a una carpeta independiente
 
 - [X] Cola
-
+- [X] Cola circular
 
