@@ -1,2 +1,4 @@
 recursividad/*.class
 src/*.class
+src/edt/cola/*.class
+src/edt/cola-circular/*.class
