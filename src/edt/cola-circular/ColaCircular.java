@@ -4,19 +4,22 @@ public class ColaCircular {
 	int max;
 	int tamaño;
 	int fin;
+	int inicio;
 
-	ColaCircular(){
+	ColaCircular() {
 		nodos = new Nodo[3];
 		max = 3;
 		tamaño = 0;
-		fin = -1;
+		fin = 0;
+		inicio = 0;
 	}
 
-	ColaCircular(int max){
+	ColaCircular(int max) {
 		nodos = new Nodo[max];
 		this.max = max;
 		tamaño = 0;
-		fin = -1;
+		fin = 0;
+		inicio = 0;
 	}
 
 	public boolean esVacio() {
@@ -36,27 +39,20 @@ public class ColaCircular {
 	public void encolar(int numero) {
 		Nodo nuevo = new Nodo(numero);
 		if (!esLleno()) {
-			fin++;
 			nodos[fin] = nuevo;
+			fin = (fin + 1) % max;
 			tamaño++;
 
 		} else {
 			System.out.println("La cola esta llena debes desencolar para almacenar mas");
-			}
+		}
 	}
 
 	public void desEncolar() {
-		if (!esVacio()){
-			for (int i = 0; i < fin;) {
-				
-				nodos[i] = nodos[i+1];
-				i++;
-				
-			}
-			nodos[fin] = null;
-			fin--;
+		if (!esVacio()) {
+			inicio = (inicio + 1) % max;
 			tamaño--;
-		}else{
+		} else {
 			System.out.println("La cola está vacia debes encolar para desencolar");
 		}
 	}
@@ -66,8 +62,10 @@ public class ColaCircular {
 		if (tamaño == 0) {
 			System.out.println("no hay ningun nodo");
 		}
-		for (Nodo nodo : nodos) {
-			cadena += nodo+", ";
+		int inicioCola = inicio;
+		for (int i = 0; i < tamaño; i++) {
+			cadena += nodos[inicioCola] + ", ";
+			inicioCola = (inicioCola + 1) % max;
 		}
 		System.out.println(cadena);
 	}
