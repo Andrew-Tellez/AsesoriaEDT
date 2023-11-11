@@ -2,3 +2,5 @@ recursividad/*.class
 src/*.class
 src/edt/cola/*.class
 src/edt/cola-circular/*.class
+src/edt/arbol/src/*.class
+src/edt/arbol/bin/*.class
