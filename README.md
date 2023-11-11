@@ -9,4 +9,4 @@ cada una de las estructuras corresponderá a una carpeta independiente
 
 - [X] Cola
 - [X] Cola circular
-
+- [X] Arbol binario
